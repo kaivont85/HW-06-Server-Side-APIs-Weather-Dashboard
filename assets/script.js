@@ -22,8 +22,18 @@ $(document).ready(function () {
       console.log(res);
       var uviIndex = res.current.uvi;
       var imageIcon = res.current.weather[0].icon;
-      var imageUrl = `https://openweathermap.org/img/w/${imageIcon}.png`
-      $("#icon").attr("res.current.weather.icon", imageIcon);
+    //   var imageIcon1 = res.daily[1].weather[0].icon;
+    //   var imageIcon2 = res.daily[2].weather[1].icon;
+    //   var imageIcon3 = res.daily[3].weather[2].icon;
+    //   var imageIcon4 = res.daily[4].weather[3].icon;
+    //   var imageIcon5 = res.daily[5].weather[4].icon;
+      var imageUrl = `https://openweathermap.org/img/w/${imageIcon}.png`;
+    //   var imageUrl1 = `https://openweathermap.org/img/w/${imageIcon1}.png`;
+    //   var imageUrl2 = `https://openweathermap.org/img/w/${imageIcon2}.png`;
+    //   var imageUrl3 = `https://openweathermap.org/img/w/${imageIcon3}.png`;
+    //   var imageUrl4 = `https://openweathermap.org/img/w/${imageIcon4}.png`;
+    //   var imageUrl5 = `https://openweathermap.org/img/w/${imageIcon5}.png`;
+      $(".icon").attr("src", imageUrl);
       $(".present-date").text(cityName + " " + moment.unix(res.current.dt).format("MM-DD-YYYY"))
       $("#humidity").text("humidity: " + res.current.humidity);
       $("#temperature").text("temperature: " + res.current.temp);
@@ -38,12 +48,16 @@ $(document).ready(function () {
         $("#uvi").addClass("high");
       }
 
-      $("#icons").attr("res.daily.weather.icon", imageIcon);
-      $(".date1").text(moment.unix(res.daily[1].dt).format("MM-DD-YYYY"))
-      $(".date2").text(moment.unix(res.daily[2].dt).format("MM-DD-YYYY"))
-      $(".date3").text(moment.unix(res.daily[3].dt).format("MM-DD-YYYY"))
-      $(".date4").text(moment.unix(res.daily[4].dt).format("MM-DD-YYYY"))
-      $(".date5").text(moment.unix(res.daily[5].dt).format("MM-DD-YYYY"))
+    //   $(".icon1").attr("src", imageUrl1);
+    //   $(".icon2").attr("src", imageUrl2);
+    //   $(".icon3").attr("src", imageUrl3);
+    //   $(".icon4").attr("src", imageUrl4);
+    //   $(".icon5").attr("src", imageUrl5);
+      $(".date1").text(moment.unix(res.daily[1].dt).format("MM-DD-YYYY"));
+      $(".date2").text(moment.unix(res.daily[2].dt).format("MM-DD-YYYY"));
+      $(".date3").text(moment.unix(res.daily[3].dt).format("MM-DD-YYYY"));
+      $(".date4").text(moment.unix(res.daily[4].dt).format("MM-DD-YYYY"));
+      $(".date5").text(moment.unix(res.daily[5].dt).format("MM-DD-YYYY"));
       $("#humidity1").text("humidity: " + res.daily[1].humidity);
       $("#temperature1").text("temperature: " + res.daily[1].temp.max);
       $("#humidity2").text("humidity: " + res.daily[2].humidity);
