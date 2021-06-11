@@ -1,73 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-<link rel="stylesheet" href="./assets/style.css">
-    <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>Weather Dashboard</title>
 </head>
+
 <body>
+  <div class="container">
     <div class="row">
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title" id="city">Card title</h5>
-                <p class="card-text" id="temperature">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-                <p class="card-text" id="wind-speed">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-                <p class="card-text" id="humidity">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text" id="uvi">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> 
-            </div>
-        </div>
-    <div class="row">
-    <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text" id="temperature1">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-                <p class="card-text" id="humidity1">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>        
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text" id="temperature2">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-                <p class="card-text" id="humidity2">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text" id="temperature3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-                <p class="card-text" id="humidity3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text" id="temperature4">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-              <p class="card-text" id="humidity4">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text" id="temperature5">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>          
-              <p class="card-text" id="humidity5">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
+      <div class="input-group">
+        <input type="text" id="city-input">
+      </div>
+      <div class="input-group-append">
+        <button id="search-button" class="btn btn-light search-button">
+        search here
+        </button>
+
+      </div> 
+      <div class="input-group city-list">
+        search cities
       </div>
     </div>
+    
+  
+  <div class="row">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img icon" src="cur" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title present-date" id="city">Card title</h5>
+          <p class="card-text" id="temperature">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+          <p class="card-text" id="wind-speed">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+          <p class="card-text" id="humidity">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+          <p class="card-text" id="uvi">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top icons" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title date1">Card title</h5>
+            <p class="card-text" id="temperature1">This is a longer card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.</p>
+            <p class="card-text" id="humidity1">This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top icons" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title date2">Card title</h5>
+            <p class="card-text" id="temperature2">This is a longer card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.</p>
+            <p class="card-text" id="humidity2">This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top icons" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title date3">Card title</h5>
+            <p class="card-text" id="temperature3">This is a longer card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.</p>
+            <p class="card-text" id="humidity3">This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top icons" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title date4">Card title</h5>
+            <p class="card-text" id="temperature4">This is a longer card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.</p>
+            <p class="card-text" id="humidity4">This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top icons" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title date5">Card title</h5>
+            <p class="card-text" id="temperature5">This is a longer card with supporting text below as a natural lead-in
+              to additional content. This content is a little bit longer.</p>
+            <p class="card-text" id="humidity5">This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -82,9 +118,9 @@
 
 
 
-   
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/script.js"></script> 
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>
