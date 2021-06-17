@@ -3,6 +3,7 @@
 var apiKey = "38b93489d4d6cdd8414ebebd8b9f8f4f";
 
 $(document).ready(function () {
+  const cityList = [];
   function latLot(cityName) {
     $.ajax({
       url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`,
@@ -22,18 +23,15 @@ $(document).ready(function () {
       console.log(res);
       var uviIndex = res.current.uvi;
       var imageIcon = res.current.weather[0].icon;
-       var imageIcon1 = res.daily[1].weather[0].icon;
+      var imageIcon1 = res.daily[1].weather[0].icon;
       var imageIcon2 = res.daily[2].weather[0].icon;
       var imageIcon3 = res.daily[3].weather[0].icon;
       var imageIcon4 = res.daily[4].weather[0].icon;
       var imageIcon5 = res.daily[5].weather[0].icon;
-      var imageUrl = `https://openweathermap.org/img/w/${imageIcon}.png`;
-      var imageUrl1 = `https://openweathermap.org/img/w/${imageIcon1}.png`;
-      var imageUrl2 = `https://openweathermap.org/img/w/${imageIcon2}.png`;
-      var imageUrl3 = `https://openweathermap.org/img/w/${imageIcon3}.png`;
-      var imageUrl4 = `https://openweathermap.org/img/w/${imageIcon4}.png`;
-      var imageUrl5 = `https://openweathermap.org/img/w/${imageIcon5}.png`;
-      $(".icon").attr("src", imageUrl);
+      var imageUrl =  "https://openweathermap.org/img/w/";
+      var png = ".png";
+
+      $(".icon").attr("src",`${imageUrl}${imageIcon}${png}`);
       $(".present-date").text(cityName + " " + moment.unix(res.current.dt).format("MM-DD-YYYY"))
       $("#humidity").text("humidity: " + res.current.humidity);
       $("#temperature").text("temperature: " + res.current.temp);
@@ -48,11 +46,12 @@ $(document).ready(function () {
         $("#uvi").addClass("high");
       }
 
-      $(".icon1").attr("src", imageUrl1);
-      $(".icon2").attr("src", imageUrl2);
-      $(".icon3").attr("src", imageUrl3);
-      $(".icon4").attr("src", imageUrl4);
-      $(".icon5").attr("src", imageUrl5);
+      $(".icon1").attr("src", `${imageUrl}${imageIcon1}${png}`);
+      $(".icon2").attr("src",`${imageUrl}${imageIcon2}${png}` );
+      $(".icon3").attr("src",`${imageUrl}${imageIcon3}${png}`);
+      $(".icon4").attr("src", `${imageUrl}${imageIcon4}${png}`);
+      $(".icon5").attr("src", `${imageUrl}${imageIcon5}${png}`);
+
       $(".date1").text(moment.unix(res.daily[1].dt).format("MM-DD-YYYY"));
       $(".date2").text(moment.unix(res.daily[2].dt).format("MM-DD-YYYY"));
       $(".date3").text(moment.unix(res.daily[3].dt).format("MM-DD-YYYY"));
@@ -71,9 +70,35 @@ $(document).ready(function () {
     });
   }
 
+    function addCities(city) {
+      cityList.push(city)
+      localStorage.setItem("list", JSON.stringify(cityList))
+      
+    }
+
+    function listPop() {
+      var places = JSON.parse(localStorage.getItem("list")) || []; 
+      $(".city-list").empty();
+      $(".city-list").append('<ul class="places"></ul>');
+
+      for (let index = 0; index < places.length; index++) {
+       $(".places").append(`<li id=${places[index]}> <button>${places[index]}</button> </li>`)
+        
+      }
+    }
+    $(".places").on("click", function() {
+      addCities(cityName)
+
+
+  })
+
+
   $(".search-button").on("click", function() {
       var cityName = $("#city-input").val();
       latLot(cityName)
+      addCities(cityName)
+      listPop()
+
   })
 });
 
