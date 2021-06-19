@@ -82,14 +82,13 @@ $(document).ready(function () {
       $(".city-list").append('<ul class="places"></ul>');
 
       for (let index = 0; index < places.length; index++) {
-       $(".places").append(`<li id=${places[index]}> <button>${places[index]}</button> </li>`)
+       $(".places").append(`<li  id=${places[index]}><button >${places[index]}</button> </li>`)
         
       }
     }
-    $(".places").on("click", function() {
-      addCities(cityName)
-
-
+    $(document).on("click", "ul.places li", function(e) {
+      e.preventDefault()
+      latLot(this.id);
   })
 
 
